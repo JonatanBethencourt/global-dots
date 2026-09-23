@@ -10,33 +10,18 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Lexend:wght@400;500;600;700&display=swap">
 <style id="gd-style">
 :root{
-  --ground:#F3F5FB; --surface:#FFFFFF; --tint:#EBEFF9; --ink:#0D1A38; --muted:#5B6682; --line:#DCE2EF;
-  --band:#0D1A38; --band-2:#1B2C5E; --band-ink:#F3F5FB; --band-muted:#A9B5D6;
+  color-scheme:light;
+  --ground:#FBFCFF; --surface:#FFFFFF; --tint:#F2F5FC; --ink:#0D1A38; --muted:#56627F; --line:#DFE5F1;
+  --band:#FFFFFF; --band-2:#E6EDFC; --band-ink:#0D1A38; --band-muted:#56627F;
   --royal:#2442B8; --royal-ink:#FFFFFF; --royal-soft:#E4E9FB;
   --gold:#F0B233; --gold-deep:#B98212; --gold-soft:#FFF3D6;
-  --well:#DDE3F0; --well-deep:#C4CDE0;
+  --well:#E7ECF6; --well-deep:#D3DBEA;
   --ok:#1C7A4B; --warn:#A8620A; --bad:#B63838; --focus:#2F6BFF;
-  --shadow:0 1px 2px rgba(13,26,56,.06),0 8px 24px -8px rgba(13,26,56,.14);
+  --shadow:0 1px 2px rgba(13,26,56,.04),0 8px 24px -10px rgba(13,26,56,.10);
   --display:"Lexend","Atkinson Hyperlegible",system-ui,sans-serif;
   --font:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
-  --ground:#0A1024; --surface:#121B36; --tint:#18234A; --ink:#E8ECF7; --muted:#9AA6C6; --line:#26335E;
-  --band:#060B1C; --band-2:#14214A; --band-ink:#E8ECF7; --band-muted:#8E9BC0;
-  --royal:#8EA6FF; --royal-ink:#0A1024; --royal-soft:#1D2A57;
-  --gold:#F5C04E; --gold-deep:#C98F1C; --gold-soft:#3A2F14;
-  --well:#1E2A52; --well-deep:#0F1733;
-  --ok:#62CC91; --warn:#F5C04E; --bad:#F28B8B; --focus:#8EA6FF;
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px -10px rgba(0,0,0,.6);}}
-:root[data-theme="dark"]{color-scheme:dark;
-  --ground:#0A1024; --surface:#121B36; --tint:#18234A; --ink:#E8ECF7; --muted:#9AA6C6; --line:#26335E;
-  --band:#060B1C; --band-2:#14214A; --band-ink:#E8ECF7; --band-muted:#8E9BC0;
-  --royal:#8EA6FF; --royal-ink:#0A1024; --royal-soft:#1D2A57;
-  --gold:#F5C04E; --gold-deep:#C98F1C; --gold-soft:#3A2F14;
-  --well:#1E2A52; --well-deep:#0F1733;
-  --ok:#62CC91; --warn:#F5C04E; --bad:#F28B8B; --focus:#8EA6FF;
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px -10px rgba(0,0,0,.6);}
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html,body{background:var(--ground)}
@@ -47,22 +32,22 @@ button,select,input,textarea{font:inherit;color:inherit}
 .wrap{max-width:1320px;margin:0 auto}
 
 /* hero band */
-.band{position:relative;background:linear-gradient(160deg,var(--band) 0%,var(--band-2) 100%);color:var(--band-ink);overflow:hidden;padding-block:28px 96px}
-.band::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(240,178,51,.22) 1.6px,transparent 2px);background-size:22px 22px;mask-image:linear-gradient(100deg,transparent 30%,#000 90%);-webkit-mask-image:linear-gradient(100deg,transparent 30%,#000 90%);pointer-events:none}
+.band{position:relative;background:linear-gradient(160deg,var(--band) 0%,var(--band-2) 100%);color:var(--band-ink);overflow:hidden;padding-block:28px 96px;border-bottom:1px solid var(--line)}
+.band::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle,rgba(36,66,184,.13) 1.6px,transparent 2px);background-size:22px 22px;mask-image:linear-gradient(100deg,transparent 30%,#000 90%);-webkit-mask-image:linear-gradient(100deg,transparent 30%,#000 90%);pointer-events:none}
 .band .wrap{position:relative;display:flex;flex-wrap:wrap;gap:20px 32px;align-items:flex-end;justify-content:space-between}
 .brand{display:flex;gap:16px;align-items:center}
-.logo{width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);display:grid;place-items:center;flex:none}
+.logo{width:56px;height:56px;border-radius:16px;background:var(--ink);border:1px solid var(--ink);display:grid;place-items:center;flex:none}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.1;margin:0;letter-spacing:-.02em;text-wrap:balance}
-h1 em{font-style:normal;color:var(--gold)}
+h1 em{font-style:normal;color:var(--royal)}
 .tagline{margin:6px 0 0;color:var(--band-muted);max-width:46ch}
-nav.tabs{display:flex;gap:4px;padding:5px;border-radius:14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);flex-wrap:wrap}
+nav.tabs{display:flex;gap:4px;padding:5px;border-radius:14px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);flex-wrap:wrap}
 nav.tabs button{border:0;background:none;color:var(--band-muted);font-family:var(--display);font-weight:500;padding:9px 16px;border-radius:10px;cursor:pointer}
 nav.tabs button:hover{color:var(--band-ink)}
 nav.tabs button[aria-selected="true"]{background:var(--gold);color:#1B1400}
 main{margin-top:-64px;position:relative;padding-block:0 56px}
 .status{margin:0 0 14px;font-size:.85rem;color:var(--band-muted);min-height:1.3em}
-.status.err{color:#FFB4B4}
-.status.ok{color:#9EE6BC}
+.status.err{color:var(--bad)}
+.status.ok{color:var(--ok)}
 
 .card{background:var(--surface);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);padding:24px}
 .eyebrow{font-family:var(--display);font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
@@ -89,8 +74,9 @@ kbd{font-family:ui-monospace,Consolas,monospace;font-size:.76rem;border:1px soli
 /* mini cell glyph */
 .cg{display:inline-block;vertical-align:middle}
 .cg circle.on{fill:var(--ink)}
-.cg circle.off{fill:var(--line)}
-.cells{display:inline-flex;gap:6px;flex-wrap:wrap;align-items:center}
+.cg circle.off{fill:#D6DDEB}
+.cells{display:inline-flex;gap:8px;flex-wrap:wrap;align-items:center}
+.sym .art .cells{gap:14px}
 
 /* translate */
 .tx{display:grid;grid-template-columns:minmax(300px,460px) 1fr;gap:24px;align-items:stretch}
@@ -353,8 +339,8 @@ const PROPER = ['JEHOVAH', 'JESUS', 'ADAM', 'EVE', 'SATAN', 'TIMOTHY', 'REVELATI
 const defaultEnglish = w => !isWord(w) ? w : SPECIAL[w] || (PROPER.includes(w) ? w[0] + w.slice(1).toLowerCase() : w.toLowerCase());
 
 function cellSVG(ch, size = 22) {
-  const m = toMask(ch), r = size * 0.16, w = size * 0.72, h = size;
-  const xs = [w * 0.25, w * 0.75], ys = [h * 0.18, h * 0.5, h * 0.82];
+  const m = toMask(ch), r = size * 0.12, w = size * 0.86, h = size;
+  const xs = [w * 0.26, w * 0.74], ys = [h * 0.14, h * 0.5, h * 0.86];
   let c = '';
   for (let i = 0; i < 6; i++) { const x = xs[i < 3 ? 0 : 1], y = ys[i % 3]; c += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(1)}" class="${m >= 0 && (m & (1 << i)) ? 'on' : 'off'}"/>`; }
   return `<svg class="cg" width="${w.toFixed(0)}" height="${h}" viewBox="0 0 ${w.toFixed(1)} ${h}" aria-hidden="true">${c}</svg>`;
@@ -621,7 +607,7 @@ function renderBrowse() {
   $('count').textContent = `${list.length} of ${symbols.length} symbols`;
   $('grid').innerHTML = list.map(s => {
     const v = vern(s, lang);
-    return `<article class="sym"><div class="art">${cellsSVG(s.code, 34)}</div><div class="body">
+    return `<article class="sym"><div class="art">${cellsSVG(s.code, 44)}</div><div class="body">
       <div class="en">${esc(s.english)}</div>
       ${lang !== 'E' && s.category !== 'punctuation' ? `<div class="vn ${v.ok ? '' : 'miss'}">${v.ok ? esc(v.text) : 'No ' + esc(langName(lang)) + ' translation yet'}</div>` : ''}
       <div class="dn">Dots ${esc(dotsStr(s.code))}</div>
