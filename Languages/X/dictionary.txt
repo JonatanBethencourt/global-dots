@@ -17,4 +17,3 @@ happy = happy-X
 Jehovah's Witnesses = Jehovah's Witnesses-X
 Kingdom Hall = Kingdom Hall-X
 go = go-X
-Maike = Maria
